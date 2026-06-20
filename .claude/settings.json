@@ -20,6 +20,8 @@
       "Write(supabase/migrations/**)",
       "Write(scripts/**)",
       "Write(docs/**)",
+      "Write(server/src/**)",
+      "Write(server/pom.xml)",
 
       "Bash(pnpm *)",
       "Bash(npx expo start)",
@@ -38,6 +40,9 @@
       "Bash(eas update *)",
       "Bash(eas whoami)",
       "Bash(eas device *)",
+
+      "Bash(./mvnw *)",
+      "Bash(cd server && ./mvnw *)",
 
       "Bash(git status)",
       "Bash(git diff *)",
