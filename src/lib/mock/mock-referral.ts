@@ -1,0 +1,4 @@
+export const REFERRAL_CODE = 'MOG-K2F9';
+export const REFERRAL_FRIENDS_COUNT = 10;
+export const REFERRAL_POINTS_EARNED = 250;
+export const REFERRAL_MILESTONE_NEXT = 15;
