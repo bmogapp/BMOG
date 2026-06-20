@@ -38,7 +38,9 @@ export default function ProfileScreen() {
               <View className="size-[88px] items-center justify-center rounded-full border border-bmog-fg-15 bg-bmog-sand">
                 <Icon as={UserRound} size={38} className="text-bmog-fg-38" />
               </View>
-              <Pressable className="absolute -right-0.5 -bottom-0.5 size-8 items-center justify-center rounded-full border-[3px] border-bmog-mist bg-bmog-ember active:scale-[0.97]">
+              <Pressable
+                className="size-8 items-center justify-center rounded-full border-[3px] border-bmog-mist bg-bmog-ember active:scale-[0.97]"
+                style={{ position: 'absolute', right: -2, bottom: -2 }}>
                 <Icon as={Camera} size={15} className="text-bmog-forest" />
               </Pressable>
             </View>

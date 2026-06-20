@@ -1,6 +1,6 @@
-import { Image } from 'expo-image';
 import { Pressable, View } from 'react-native';
 
+import { PhotoPlaceholder } from '@/components/brand/photo-placeholder';
 import { BrandIcons } from '@/components/ui/brand-icons';
 import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
@@ -11,11 +11,9 @@ export function VenueListItem({ venue, onPress }: { venue: Venue; onPress?: () =
     <Pressable
       onPress={onPress}
       className="mb-3 flex-row gap-3.5 rounded-card border border-bmog-fg-15 bg-bmog-mist p-3 active:scale-[0.98]">
-      <Image
-        source={require('@/assets/brand/venue-photo.png')}
-        style={{ width: 84, height: 84, borderRadius: 14 }}
-        contentFit="cover"
-      />
+      <View style={{ width: 84, height: 84, borderRadius: 14, overflow: 'hidden' }}>
+        <PhotoPlaceholder icon="map-pin" />
+      </View>
       <View className="flex-1 justify-center">
         <Text className="font-mono text-bmog-fg-38 text-[10px]" style={{ letterSpacing: 0.6 }}>
           {venue.sport.toUpperCase()} · {venue.area}

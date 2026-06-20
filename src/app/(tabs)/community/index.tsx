@@ -1,10 +1,10 @@
-import { Image } from 'expo-image';
 import { useRouter } from 'expo-router';
 import * as React from 'react';
 import { Pressable, ScrollView, TextInput, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Chip } from '@/components/brand/chip';
+import { PhotoPlaceholder } from '@/components/brand/photo-placeholder';
 import { BrandIcons } from '@/components/ui/brand-icons';
 import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
@@ -59,16 +59,17 @@ export default function TabCommunity() {
           {rooms.map((r) => (
             <Pressable
               key={r.id}
-              onPress={() => router.push({ pathname: '/community/room/[roomId]', params: { roomId: r.id } })}
+              onPress={() => router.push({ pathname: '/community-room/[roomId]', params: { roomId: r.id } })}
               className="mb-2.5 flex-row gap-3 rounded-card border border-bmog-fg-15 bg-bmog-mist p-3 active:scale-[0.98]">
               <View>
-                <Image
-                  source={require('@/assets/brand/venue-photo.png')}
-                  style={{ width: 50, height: 50, borderRadius: 14 }}
-                  contentFit="cover"
-                />
+                <View style={{ width: 50, height: 50, borderRadius: 14, overflow: 'hidden' }}>
+                  <PhotoPlaceholder icon="messages-square" />
+                </View>
                 {r.live ? (
-                  <View className="absolute bottom-0 right-0 size-2.5 rounded-full border-2 border-bmog-mist bg-bmog-sky" />
+                  <View
+                    className="size-2.5 rounded-full border-2 border-bmog-mist bg-bmog-sky"
+                    style={{ position: 'absolute', right: 0, bottom: 0 }}
+                  />
                 ) : null}
               </View>
               <View className="flex-1">

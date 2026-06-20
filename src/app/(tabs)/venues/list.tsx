@@ -41,7 +41,7 @@ export default function TabVenues() {
               <VenueListItem
                 key={v.id}
                 venue={v}
-                onPress={() => router.push({ pathname: '/venues/[venueId]', params: { venueId: v.id } })}
+                onPress={() => router.push({ pathname: '/venue/[venueId]', params: { venueId: v.id } })}
               />
             ))
           )}

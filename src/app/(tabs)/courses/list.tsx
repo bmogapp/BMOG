@@ -41,7 +41,7 @@ export default function TabCourses() {
               <StudioListItem
                 key={s.id}
                 studio={s}
-                onPress={() => router.push({ pathname: '/courses/studio/[studioId]', params: { studioId: s.id } })}
+                onPress={() => router.push({ pathname: '/studio/[studioId]', params: { studioId: s.id } })}
               />
             ))
           )}

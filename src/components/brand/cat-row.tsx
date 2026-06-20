@@ -1,6 +1,6 @@
-import { Image } from 'expo-image';
 import { Pressable, ScrollView, View } from 'react-native';
 
+import { PhotoPlaceholder } from '@/components/brand/photo-placeholder';
 import { BrandIcons } from '@/components/ui/brand-icons';
 import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
@@ -26,11 +26,7 @@ export function CatRow({ items, activeId }: CatRowProps) {
               className={`size-[66px] overflow-hidden rounded-card ${
                 active ? 'border-2 border-bmog-ember' : 'border border-bmog-fg-15'
               }`}>
-              <Image
-                source={require('@/assets/brand/venue-photo.png')}
-                style={{ width: '100%', height: '100%' }}
-                contentFit="cover"
-              />
+              <PhotoPlaceholder icon="activity" />
               <View className="absolute inset-0" style={{ backgroundColor: 'rgba(30,45,33,0.3)' }} />
               {active ? (
                 <View className="absolute right-1.5 top-1.5 size-[18px] items-center justify-center rounded-full bg-bmog-ember">

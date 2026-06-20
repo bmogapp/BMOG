@@ -1,6 +1,6 @@
-import { Image } from 'expo-image';
 import { Pressable, View } from 'react-native';
 
+import { PhotoPlaceholder } from '@/components/brand/photo-placeholder';
 import { Text } from '@/components/ui/text';
 
 export type StudioCardProps = {
@@ -15,11 +15,7 @@ export function StudioCard({ name, area, dist, rating, tag }: StudioCardProps) {
   return (
     <Pressable className="w-[208px] overflow-hidden rounded-[16px] border border-bmog-fg-15 bg-bmog-mist">
       <View className="relative h-[118px] bg-bmog-sand">
-        <Image
-          source={require('@/assets/brand/venue-photo.png')}
-          style={{ width: '100%', height: '100%' }}
-          contentFit="cover"
-        />
+        <PhotoPlaceholder icon="dumbbell" />
         {tag ? (
           <View className="absolute left-2.5 top-2.5 rounded-full bg-bmog-flash px-2 py-1">
             <Text className="font-mono-medium text-bmog-forest text-[9.5px]" style={{ letterSpacing: 1 }}>

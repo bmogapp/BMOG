@@ -137,3 +137,23 @@ export const COURSE_DETAILS: Record<string, CourseDetail> = {
     pointsBalance: 860,
   },
 };
+
+export function getCourseDetail(classId: string): CourseDetail {
+  const existing = COURSE_DETAILS[classId];
+  if (existing) return existing;
+  const session = CLASS_SESSIONS.find((c) => c.id === classId) ?? CLASS_SESSIONS[0];
+  return {
+    ...session,
+    imageCount: 3,
+    coachRating: 4.8,
+    coachClasses: 180,
+    about: `這堂課由 ${session.coach} 帶領，依照學員程度調整強度，適合想規律運動的你。`,
+    notes: ['請於課前 10 分鐘到場完成報到', '建議穿著合身運動服', '請自備個人水壺'],
+    cancelPolicy: [
+      { tone: 'sky', title: '24 小時前取消', desc: '全額退還已扣抵點數' },
+      { tone: 'flash', title: '24 小時內取消', desc: '退還 50% 點數' },
+      { tone: 'ember', title: '未到場', desc: '不予退還點數' },
+    ],
+    pointsBalance: 860,
+  };
+}

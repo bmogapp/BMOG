@@ -1,9 +1,9 @@
-import { Image } from 'expo-image';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import * as React from 'react';
 import { Pressable, ScrollView, TextInput, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { PhotoPlaceholder } from '@/components/brand/photo-placeholder';
 import { BrandIcons } from '@/components/ui/brand-icons';
 import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
@@ -32,11 +32,9 @@ export default function CommunityRoom() {
             className="size-9 items-center justify-center rounded-tile border border-bmog-fg-15 active:scale-[0.95]">
             <Icon as={BrandIcons['chevron-left']} size={18} className="text-bmog-forest" />
           </Pressable>
-          <Image
-            source={require('@/assets/brand/venue-photo.png')}
-            style={{ width: 40, height: 40, borderRadius: 12 }}
-            contentFit="cover"
-          />
+          <View style={{ width: 40, height: 40, borderRadius: 12, overflow: 'hidden' }}>
+            <PhotoPlaceholder icon="messages-square" />
+          </View>
           <View className="flex-1">
             <Text className="font-tc-bold text-bmog-fg text-[14.5px]" numberOfLines={1}>
               {room.name}

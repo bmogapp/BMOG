@@ -17,9 +17,9 @@ const TYPE_TONE: Record<CalendarBooking['type'], { bg: string; text: string; lab
 };
 
 function routeForBooking(b: CalendarBooking): { pathname: string; params: Record<string, string> } {
-  if (b.type === 'course') return { pathname: '/courses/class/[classId]', params: { classId: b.refId } };
-  if (b.type === 'venue') return { pathname: '/venues/[venueId]', params: { venueId: b.refId } };
-  return { pathname: '/venues/[venueId]/event/[eventId]', params: { venueId: 'court-daan', eventId: b.refId } };
+  if (b.type === 'course') return { pathname: '/class/[classId]', params: { classId: b.refId } };
+  if (b.type === 'venue') return { pathname: '/venue/[venueId]', params: { venueId: b.refId } };
+  return { pathname: '/venue/[venueId]/event/[eventId]', params: { venueId: 'court-daan', eventId: b.refId } };
 }
 
 export default function TabCalendar() {
