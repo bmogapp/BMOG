@@ -38,12 +38,18 @@ const buttonVariants = cva(
           Platform.select({ web: 'hover:bg-accent dark:hover:bg-accent/50' })
         ),
         link: '',
+        // BMOG brand variants — ember CTA / forest outline / sky text, springy press
+        brand: 'rounded-field bg-bmog-ember active:scale-[0.97] active:bg-bmog-ember-700',
+        'brand-outline':
+          'rounded-field border-[1.5px] border-bmog-forest bg-transparent active:scale-[0.97]',
+        'brand-text': 'rounded-none bg-transparent active:scale-[0.97]',
       },
       size: {
         default: cn('h-10 px-4 py-2 sm:h-9', Platform.select({ web: 'has-[>svg]:px-3' })),
         sm: cn('h-9 gap-1.5 rounded-md px-3 sm:h-8', Platform.select({ web: 'has-[>svg]:px-2.5' })),
         lg: cn('h-11 rounded-md px-6 sm:h-10', Platform.select({ web: 'has-[>svg]:px-4' })),
         icon: 'h-10 w-10 sm:h-9 sm:w-9',
+        brand: 'h-[54px] px-6',
       },
     },
     defaultVariants: {
@@ -73,12 +79,16 @@ const buttonTextVariants = cva(
           'text-primary group-active:underline',
           Platform.select({ web: 'underline-offset-4 hover:underline group-hover:underline' })
         ),
+        brand: 'font-sans-semibold text-base text-bmog-forest',
+        'brand-outline': 'font-sans-semibold text-base text-bmog-forest',
+        'brand-text': 'font-sans-semibold text-sm text-bmog-sky',
       },
       size: {
         default: '',
         sm: '',
         lg: '',
         icon: '',
+        brand: '',
       },
     },
     defaultVariants: {
