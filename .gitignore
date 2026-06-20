@@ -1,0 +1,65 @@
+# Dependencies
+node_modules/
+.pnp.*
+
+# Build & native (Expo prebuild 自動產生，不提交)
+dist/
+build/
+ios/
+android/
+
+# EAS build artifacts
+*.ipa
+*.apk
+*.aab
+
+# Expo
+.expo/
+expo-env.d.ts
+
+# Supabase local
+.supabase/
+supabase/.branches/
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Firebase（含 API Key，絕對不能進 repo）
+google-services.json
+GoogleService-Info.plist
+
+# AI tools
+.claude/settings.local.json
+.cursor/
+.aider*
+.continue/
+.cody/
+
+# Secrets & credentials
+*.pem
+*.key
+*.p12
+credentials.json
+service-account*.json
+.npmrc
+.aws/
+.ssh/
+.docker/config.json
+
+# IDE
+.vscode/settings.json
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs & coverage
+*.log
+coverage/
+.nyc_output/
+
+# Metro bundler
+.metro-health-check*

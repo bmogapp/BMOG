@@ -1,0 +1,107 @@
+{
+  "permissions": {
+    "allow": [
+      "Read",
+      "Glob",
+      "Grep",
+      "LS",
+      "Edit",
+      "MultiEdit",
+
+      "Write(app/**)",
+      "Write(components/**)",
+      "Write(hooks/**)",
+      "Write(lib/**)",
+      "Write(utils/**)",
+      "Write(types/**)",
+      "Write(constants/**)",
+      "Write(assets/**)",
+      "Write(supabase/functions/**)",
+      "Write(supabase/migrations/**)",
+      "Write(scripts/**)",
+      "Write(docs/**)",
+
+      "Bash(pnpm *)",
+      "Bash(npx expo start)",
+      "Bash(npx expo install *)",
+      "Bash(npx expo prebuild *)",
+      "Bash(npx expo lint)",
+      "Bash(npx tsc *)",
+      "Bash(npx prettier *)",
+      "Bash(npx eslint *)",
+      "Bash(npx jest *)",
+      "Bash(npx supabase db *)",
+      "Bash(npx supabase functions *)",
+      "Bash(npx supabase gen *)",
+      "Bash(npx supabase migration *)",
+      "Bash(eas build *)",
+      "Bash(eas update *)",
+      "Bash(eas whoami)",
+      "Bash(eas device *)",
+
+      "Bash(git status)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git checkout *)",
+      "Bash(git branch *)",
+      "Bash(cat *)",
+      "Bash(head *)",
+      "Bash(tail *)",
+      "Bash(wc *)",
+      "Bash(find *)",
+      "Bash(echo *)"
+    ],
+    "deny": [
+      "Read(**/.env*)",
+      "Read(**/google-services.json)",
+      "Read(**/GoogleService-Info.plist)",
+      "Read(**/*.pem)",
+      "Read(**/*.key)",
+      "Read(**/*.p12)",
+      "Read(**/secrets/**)",
+      "Read(**/credentials/**)",
+      "Read(**/.aws/**)",
+      "Read(**/.ssh/**)",
+      "Read(**/.npmrc)",
+
+      "Write(**/.env*)",
+      "Write(**/google-services.json)",
+      "Write(**/GoogleService-Info.plist)",
+      "Write(**/secrets/**)",
+      "Write(**/.ssh/**)",
+      "Write(.github/workflows/*)",
+      "Write(eas.json)",
+      "Write(ios/**)",
+      "Write(android/**)",
+
+      "Bash(rm -rf *)",
+      "Bash(sudo *)",
+      "Bash(git push *)",
+      "Bash(git merge *)",
+      "Bash(git rebase *)",
+      "Bash(eas submit *)",
+      "Bash(eas build --auto-submit *)",
+      "Bash(npx expo eject)",
+      "Bash(docker *)",
+      "Bash(curl * | sh)",
+      "Bash(wget *)",
+      "Bash(chmod *)"
+    ],
+    "defaultMode": "acceptEdits"
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if [[ \"$CLAUDE_TOOL_INPUT_FILE_PATH\" =~ \\.(ts|tsx)$ ]]; then npx prettier --write \"$CLAUDE_TOOL_INPUT_FILE_PATH\"; fi"
+          }
+        ]
+      }
+    ]
+  }
+}
