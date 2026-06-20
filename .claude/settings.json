@@ -77,7 +77,6 @@
       "Write(**/secrets/**)",
       "Write(**/.ssh/**)",
       "Write(.github/workflows/*)",
-      "Write(eas.json)",
       "Write(ios/**)",
       "Write(android/**)",
 
