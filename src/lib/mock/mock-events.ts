@@ -48,6 +48,36 @@ export const EVENTS: EventListing[] = [
       { id: 'note', label: '備註', type: 'textarea', placeholder: '特殊需求或想說的話' },
     ],
   },
+  {
+    id: 'evt-badminton-open',
+    venueId: 'court-xinyi',
+    kicker: 'EVENT · OPEN PLAY',
+    title: '羽球公開賽',
+    en: 'BADMINTON OPEN PLAY',
+    date: '2026年6月25日 週四',
+    time: '20:00–22:00',
+    place: '信義運動中心',
+    placeSub: '羽球場 1–3',
+    host: '信義羽球社',
+    going: 24,
+    cap: 24,
+    price: 250,
+    desc: [
+      [{ text: '不限等級的開放式羽球聚會，' }, { text: '依現場人數自動排場', bold: true }, { text: '，歡迎單打雙打混合報名。' }],
+    ],
+    notes: ['請自備球拍，球館提供球', '請於開場前 15 分鐘完成報到'],
+    agenda: [
+      { time: '20:00', label: '報到 / 換場' },
+      { time: '20:15', label: '自由配對開打' },
+      { time: '21:45', label: '收場' },
+    ],
+    includes: [{ icon: 'check-circle-2', label: '羽球提供' }],
+    form: [
+      { id: 'name', label: '姓名', type: 'text', required: true },
+      { id: 'phone', label: '聯絡電話', type: 'tel', required: true },
+      { id: 'level', label: '球技等級', type: 'choice', options: ['新手', '中階', '進階'], required: true },
+    ],
+  },
 ];
 
 export const WAITLIST_TICKETS: WaitlistTicket[] = [
