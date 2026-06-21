@@ -2,6 +2,7 @@
   "expo": {
     "name": "BMOG",
     "slug": "bmog",
+    "owner": "bmogapps-team",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -53,6 +54,12 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "fc410935-f173-45c8-b3ff-6399f8468dbf"
+      }
     }
   }
 }
