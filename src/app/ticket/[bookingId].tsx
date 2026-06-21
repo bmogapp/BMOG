@@ -47,7 +47,16 @@ export default function FlowCheckoutPoints() {
           </View>
 
           <View className="gap-2.5">
-            <Button variant="brand" size="brand">
+            <Button
+              variant="brand"
+              size="brand"
+              onPress={() =>
+                router.push({ pathname: '/checkin/[bookingId]', params: { bookingId: detail.id } })
+              }>
+              <Icon as={BrandIcons['scan-line']} size={17} className="text-bmog-forest" />
+              <Text className="font-sans-semibold text-bmog-forest text-[15px]">前往課程報到</Text>
+            </Button>
+            <Button variant="brand-outline" size="brand">
               <Icon as={BrandIcons['calendar-check']} size={17} className="text-bmog-forest" />
               <Text className="font-sans-semibold text-bmog-forest text-[15px]">加入行事曆</Text>
             </Button>
