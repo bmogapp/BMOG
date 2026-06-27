@@ -31,7 +31,7 @@ export default function TabCourses() {
             <Chip key={s} label={s} active={s === sport} onPress={() => setSport(s)} />
           ))}
         </ScrollView>
-        <ScrollView showsVerticalScrollIndicator={false} contentContainerClassName="px-5 pb-7">
+        <ScrollView className="flex-1" showsVerticalScrollIndicator={false} contentContainerClassName="px-5 pb-7">
           {filtered.length === 0 ? (
             <Text className="font-sans text-bmog-fg-38 text-[13px] text-center mt-10">
               這個分類目前沒有教室

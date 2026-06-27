@@ -35,7 +35,7 @@ export default function FlowReview() {
       <SafeAreaView className="flex-1" edges={['top']}>
         <ScreenHeader title="課程評價" sub={studio.name} onBack={() => router.back()} />
 
-        <ScrollView showsVerticalScrollIndicator={false} contentContainerClassName="px-6 pb-7">
+        <ScrollView className="flex-1" showsVerticalScrollIndicator={false} contentContainerClassName="px-6 pb-7">
           <View className="items-center rounded-card border border-bmog-fg-15 bg-bmog-sand p-5 mt-2">
             <Text className="font-tc-bold text-bmog-fg text-[16px]">{detail.name}</Text>
             <Text className="font-mono text-bmog-fg-38 text-[10.5px] mt-1">教練 {detail.coach}</Text>

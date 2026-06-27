@@ -149,7 +149,7 @@ export default function EventDetailRich() {
 
   return (
     <View className="flex-1 bg-bmog-mist">
-      <ScrollView showsVerticalScrollIndicator={false} contentContainerClassName="pb-7">
+      <ScrollView className="flex-1" showsVerticalScrollIndicator={false} contentContainerClassName="pb-7">
         <View style={{ position: 'relative', height: 236 }}>
           <PhotoPlaceholder icon="swords" />
           <SafeAreaView edges={['top']} className="absolute inset-x-0 top-0">

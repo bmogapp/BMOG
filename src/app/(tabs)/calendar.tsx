@@ -50,7 +50,7 @@ export default function TabCalendar() {
   return (
     <View className="flex-1 bg-bmog-mist">
       <SafeAreaView className="flex-1" edges={['top']}>
-        <ScrollView showsVerticalScrollIndicator={false} contentContainerClassName="px-5 pb-7 pt-2">
+        <ScrollView className="flex-1" showsVerticalScrollIndicator={false} contentContainerClassName="px-5 pb-7 pt-2">
           <View className="flex-row items-center justify-between mb-5">
             <Pressable
               onPress={() => setMonthOffset((m) => m - 1)}

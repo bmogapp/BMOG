@@ -4,6 +4,7 @@ import { Pressable, ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { HeartButton } from '@/components/brand/heart-button';
+import { HeartSheet } from '@/components/brand/heart-sheet';
 import { IntensityBadge } from '@/components/brand/intensity-badge';
 import { BrandIcons } from '@/components/ui/brand-icons';
 import { Icon } from '@/components/ui/icon';
@@ -17,6 +18,7 @@ export default function StudioSchedule() {
   const { studioId } = useLocalSearchParams<{ studioId: string }>();
   const studio = STUDIOS.find((s) => s.id === studioId) ?? STUDIOS[0];
   const [saved, setSaved] = React.useState(false);
+  const [heartOpen, setHeartOpen] = React.useState(false);
   const [selectedDay, setSelectedDay] = React.useState(0);
 
   const today = new Date(2026, 5, 20);
@@ -43,7 +45,7 @@ export default function StudioSchedule() {
               課程表 · SCHEDULE
             </Text>
           </View>
-          <HeartButton active={saved} onToggle={() => setSaved((v) => !v)} size={16} />
+          <HeartButton active={saved} onToggle={() => setHeartOpen(true)} size={16} />
         </View>
 
         <Text className="font-display text-bmog-fg text-[18px] px-5" style={{ letterSpacing: -0.2 }}>
@@ -77,7 +79,7 @@ export default function StudioSchedule() {
           })}
         </ScrollView>
 
-        <ScrollView showsVerticalScrollIndicator={false} contentContainerClassName="px-5 pb-7">
+        <ScrollView className="flex-1" showsVerticalScrollIndicator={false} contentContainerClassName="px-5 pb-7">
           <View className="flex-row items-baseline justify-between mb-3">
             <Text className="font-tc-bold text-bmog-fg text-[15px]">
               6月{days[selectedDay].getDate()}日課程
@@ -115,6 +117,8 @@ export default function StudioSchedule() {
           ))}
         </ScrollView>
       </SafeAreaView>
+
+      <HeartSheet visible={heartOpen} onClose={() => setHeartOpen(false)} onSaved={setSaved} />
     </View>
   );
 }

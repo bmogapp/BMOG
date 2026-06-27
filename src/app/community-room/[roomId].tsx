@@ -46,7 +46,7 @@ export default function CommunityRoom() {
           <Icon as={BrandIcons.info} size={19} className="text-bmog-fg-38" />
         </View>
 
-        <ScrollView contentContainerClassName="px-4 py-4 gap-3" showsVerticalScrollIndicator={false}>
+        <ScrollView className="flex-1" contentContainerClassName="px-4 py-4 gap-3" showsVerticalScrollIndicator={false}>
           <Text className="self-center font-mono text-bmog-fg-38 text-[10.5px]">— 6月19日 —</Text>
           {messages.map((m, i) => {
             const mine = m.who === 'me';

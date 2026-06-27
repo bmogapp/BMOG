@@ -125,7 +125,7 @@ export default function VenueBooking() {
           </View>
         </View>
 
-        <ScrollView showsVerticalScrollIndicator={false} contentContainerClassName="px-5 pb-7">
+        <ScrollView className="flex-1" showsVerticalScrollIndicator={false} contentContainerClassName="px-5 pb-7">
           <View className="flex-row flex-wrap gap-2.5">
             {HOURS.map((h) => {
               const booked = isBooked(day, court, h);

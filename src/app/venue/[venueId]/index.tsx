@@ -5,6 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Facilities } from '@/components/brand/facilities-grid';
 import { HeartButton } from '@/components/brand/heart-button';
+import { HeartSheet } from '@/components/brand/heart-sheet';
 import { MapDistance } from '@/components/brand/map-distance';
 import { PhotoPlaceholder } from '@/components/brand/photo-placeholder';
 import { Stars } from '@/components/brand/stars';
@@ -72,11 +73,12 @@ export default function VenueDetailRich() {
   const { venueId } = useLocalSearchParams<{ venueId: string }>();
   const venue = VENUES.find((v) => v.id === venueId) ?? VENUES[0];
   const [saved, setSaved] = React.useState(false);
+  const [heartOpen, setHeartOpen] = React.useState(false);
   const [sub, setSub] = React.useState<'intro' | 'events'>('intro');
 
   return (
     <View className="flex-1 bg-bmog-mist">
-      <ScrollView showsVerticalScrollIndicator={false} contentContainerClassName="pb-7">
+      <ScrollView className="flex-1" showsVerticalScrollIndicator={false} contentContainerClassName="pb-7">
         <View style={{ position: 'relative', height: 236 }}>
           <PhotoPlaceholder icon="map-pin" />
           <SafeAreaView edges={['top']} className="absolute inset-x-0 top-0">
@@ -84,7 +86,7 @@ export default function VenueDetailRich() {
               <HeroBtn icon="chevron-left" onPress={() => router.back()} />
               <View className="flex-row gap-2">
                 <HeroBtn icon="share-2" />
-                <HeartButton active={saved} onToggle={() => setSaved((v) => !v)} />
+                <HeartButton active={saved} onToggle={() => setHeartOpen(true)} />
               </View>
             </View>
           </SafeAreaView>
@@ -187,6 +189,8 @@ export default function VenueDetailRich() {
           <Text className="font-sans-semibold text-bmog-forest text-[16px]">選擇時段</Text>
         </Button>
       </SafeAreaView>
+
+      <HeartSheet visible={heartOpen} onClose={() => setHeartOpen(false)} onSaved={setSaved} />
     </View>
   );
 }

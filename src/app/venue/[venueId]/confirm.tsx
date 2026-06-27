@@ -52,7 +52,7 @@ export default function VenueConfirm() {
         <StepBar step={1} total={2} onBack={() => router.back()} />
         <FlowHeader kicker="場地租借 · 確認預約" title="確認與付款" sub={`${venue.courts[Number(court) || 0]} · 6/${20 + Number(day || 0)}`} />
 
-        <ScrollView showsVerticalScrollIndicator={false} contentContainerClassName="px-6 pb-7">
+        <ScrollView className="flex-1" showsVerticalScrollIndicator={false} contentContainerClassName="px-6 pb-7">
           <View className="rounded-card border border-bmog-fg-15 bg-bmog-sand p-4">
             <Text className="font-sans-semibold text-bmog-fg text-[14px]">{venue.name}</Text>
             <Text className="font-mono text-bmog-fg-62 text-[11px] mt-1.5">

@@ -38,7 +38,7 @@ export default function EventRegForm() {
         <StepBar step={1} total={3} onBack={() => router.back()} />
         <FlowHeader kicker={event.kicker} title="活動報名" sub={event.title} />
 
-        <ScrollView showsVerticalScrollIndicator={false} contentContainerClassName="px-6 pb-7">
+        <ScrollView className="flex-1" showsVerticalScrollIndicator={false} contentContainerClassName="px-6 pb-7">
           {event.form.map((f) => {
             if (f.type === 'choice') {
               return (

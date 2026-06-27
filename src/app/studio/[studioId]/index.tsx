@@ -5,6 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Facilities } from '@/components/brand/facilities-grid';
 import { HeartButton } from '@/components/brand/heart-button';
+import { HeartSheet } from '@/components/brand/heart-sheet';
 import { MapDistance } from '@/components/brand/map-distance';
 import { PhotoPlaceholder } from '@/components/brand/photo-placeholder';
 import { Stars } from '@/components/brand/stars';
@@ -30,10 +31,11 @@ export default function StudioDetail() {
   const { studioId } = useLocalSearchParams<{ studioId: string }>();
   const studio = STUDIOS.find((s) => s.id === studioId) ?? STUDIOS[0];
   const [saved, setSaved] = React.useState(false);
+  const [heartOpen, setHeartOpen] = React.useState(false);
 
   return (
     <View className="flex-1 bg-bmog-mist">
-      <ScrollView showsVerticalScrollIndicator={false} contentContainerClassName="pb-7">
+      <ScrollView className="flex-1" showsVerticalScrollIndicator={false} contentContainerClassName="pb-7">
         <View style={{ position: 'relative', height: 236 }}>
           <PhotoPlaceholder icon="dumbbell" />
           <SafeAreaView edges={['top']} className="absolute inset-x-0 top-0">
@@ -41,7 +43,7 @@ export default function StudioDetail() {
               <HeroBtn icon="chevron-left" onPress={() => router.back()} />
               <View className="flex-row gap-2">
                 <HeroBtn icon="share-2" />
-                <HeartButton active={saved} onToggle={() => setSaved((v) => !v)} />
+                <HeartButton active={saved} onToggle={() => setHeartOpen(true)} />
               </View>
             </View>
           </SafeAreaView>
@@ -126,6 +128,8 @@ export default function StudioDetail() {
           <Text className="font-sans-semibold text-bmog-forest text-[16px]">查看課程表</Text>
         </Button>
       </SafeAreaView>
+
+      <HeartSheet visible={heartOpen} onClose={() => setHeartOpen(false)} onSaved={setSaved} />
     </View>
   );
 }

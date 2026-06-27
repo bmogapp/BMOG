@@ -5,6 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Facilities } from '@/components/brand/facilities-grid';
 import { HeartButton } from '@/components/brand/heart-button';
+import { HeartSheet } from '@/components/brand/heart-sheet';
 import { MapDistance } from '@/components/brand/map-distance';
 import { PhotoPlaceholder } from '@/components/brand/photo-placeholder';
 import { Button } from '@/components/ui/button';
@@ -111,6 +112,7 @@ export default function CourseDetailRich() {
   const studio = STUDIOS.find((s) => s.id === detail.studioId) ?? STUDIOS[0];
   const { width } = useWindowDimensions();
   const [saved, setSaved] = React.useState(false);
+  const [heartOpen, setHeartOpen] = React.useState(false);
   const [agree, setAgree] = React.useState(false);
   const [imgIndex, setImgIndex] = React.useState(0);
   const [modalVisible, setModalVisible] = React.useState(false);
@@ -142,7 +144,7 @@ export default function CourseDetailRich() {
                 style={{ backgroundColor: 'rgba(255,248,242,0.85)' }}>
                 <Icon as={BrandIcons['chevron-left']} size={18} className="text-bmog-forest" />
               </Pressable>
-              <HeartButton active={saved} onToggle={() => setSaved((v) => !v)} />
+              <HeartButton active={saved} onToggle={() => setHeartOpen(true)} />
             </View>
           </SafeAreaView>
           <View
@@ -268,6 +270,8 @@ export default function CourseDetailRich() {
         }}
         classId={detail.id}
       />
+
+      <HeartSheet visible={heartOpen} onClose={() => setHeartOpen(false)} onSaved={setSaved} />
     </View>
   );
 }

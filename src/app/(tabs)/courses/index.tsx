@@ -21,7 +21,7 @@ export default function TabCoursesPick() {
   return (
     <View className="flex-1 bg-bmog-mist">
       <SafeAreaView className="flex-1" edges={['top']}>
-        <ScrollView showsVerticalScrollIndicator={false} contentContainerClassName="px-5 pb-7 pt-2">
+        <ScrollView className="flex-1" showsVerticalScrollIndicator={false} contentContainerClassName="px-5 pb-7 pt-2">
           <Text
             className="font-display text-bmog-fg text-[30px]"
             style={{ textTransform: 'uppercase', letterSpacing: -0.3 }}>

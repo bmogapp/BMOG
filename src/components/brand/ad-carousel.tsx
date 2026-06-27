@@ -1,3 +1,4 @@
+import { useRouter } from 'expo-router';
 import * as React from 'react';
 import { Dimensions, type NativeScrollEvent, type NativeSyntheticEvent, Pressable, ScrollView, View } from 'react-native';
 
@@ -24,8 +25,10 @@ const SLIDE_COUNT = PROMO_SLIDES.length + 1; // + the invite-code slide
 const AUTOPLAY_MS = 3200;
 
 function InviteSlide({ width }: { width: number }) {
+  const router = useRouter();
   return (
-    <View
+    <Pressable
+      onPress={() => router.push('/referral')}
       style={{ width }}
       className="h-32 justify-between rounded-[18px] border border-dashed border-bmog-ember bg-bmog-sand p-4">
       <View className="flex-row items-center justify-between">
@@ -49,7 +52,7 @@ function InviteSlide({ width }: { width: number }) {
           <Text className="font-sans-semibold text-bmog-forest text-[14px]">複製</Text>
         </Pressable>
       </View>
-    </View>
+    </Pressable>
   );
 }
 
